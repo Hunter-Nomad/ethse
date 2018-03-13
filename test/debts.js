@@ -69,7 +69,7 @@ contract('Debts', function(accounts) {
             .then(() => debts.borrow(value, {from: borrower}))
             .then(() => debts.repay(borrower, value, {from: OWNER}))
             .then(result => {
-              // console.log(result);
+              // console.log(result.logs[0]);
                 assert.equal(result.logs[0].event, 'Repayed');
                 assert.equal(result.logs[0].args.by, borrower);
                 assert.equal(result.logs[0].args.value.valueOf(), value);
